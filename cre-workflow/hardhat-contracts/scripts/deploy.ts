@@ -37,27 +37,27 @@ async function main() {
   const deploymentReceipt = await market.deploymentTransaction()?.wait();
   
   console.log("\n✅ PredictionMarket deployed successfully!");
-  console.log("Contract address:", market.address);
+  console.log("Contract address:", await market.getAddress());
   
   // Log deployment info
   console.log("\n📋 Deployment Summary:");
   console.log("----------------------");
   console.log("Network: Sepolia");
   console.log("Contract: PredictionMarket");
-  console.log("Address:", market.address);
+  console.log("Address:", await market.getAddress());
   console.log("Forwarder:", FORWARDER_ADDRESS);
   console.log("Deployer:", deployer.address);
   console.log("Transaction hash:", deploymentReceipt?.hash);
   
   // Verify on Etherscan (optional)
   console.log("\n🔍 View on Etherscan:");
-  console.log(`https://sepolia.etherscan.io/address/${market.address}`);
+  console.log(`https://sepolia.etherscan.io/address/${await market.getAddress()}`);
   
   // Instructions for next steps
   console.log("\n📝 Next Steps:");
   console.log("1. Save this contract address in your CRE config file:");
   console.log(`   File: ../cre-workflow/prediction-market-demo/config.staging.json`);
-  console.log(`   Update "marketAddress" to: ${market.address}`);
+  console.log(`   Update "marketAddress" to: ${await market.getAddress()}`);
   console.log("\n2. Run CRE simulation:");
   console.log("   cd ../cre-workflow/prediction-market-demo");
   console.log("   cre workflow simulate prediction-market-demo");

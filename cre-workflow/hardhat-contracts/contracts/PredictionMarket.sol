@@ -1,15 +1,15 @@
             // Track participants for each market
-            mapping(uint256 => address[]) public marketParticipants;
-        import "@chainlink/contracts/src/v0.8/vrf/VRFConsumerBaseV2.sol";
-        import "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol";
+    mapping(uint256 => address[]) public marketParticipants;
+    import "@chainlink/contracts/src/v0.8/vrf/VRFConsumerBaseV2.sol";
+    import "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol";
         /**
          * Fetch the latest price from the Chainlink price feed for a given market.
          * Returns price as int256 and the feed's decimals.
          */
-        function getLatestPrice(uint256 _marketId) public view returns (int256 price, uint8 decimals) {
-            Market storage market = markets[_marketId];
-            require(market.resolutionFeed != address(0), "No price feed for this market");
-            AggregatorV3Interface feed = AggregatorV3Interface(market.resolutionFeed);
+    function getLatestPrice(uint256 _marketId) public view returns (int256 price, uint8 decimals) {
+    Market storage market = markets[_marketId];
+    require(market.resolutionFeed != address(0), "No price feed for this market");
+    AggregatorV3Interface feed = AggregatorV3Interface(market.resolutionFeed);
             (
                 ,
                 int256 answer,
