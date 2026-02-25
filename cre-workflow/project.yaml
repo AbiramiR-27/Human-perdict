@@ -1,8 +1,0 @@
-version: 2
-targets:
-  local-simulation:
-    evm:
-      ethereum-sepolia:
-        rpc:
-          url: "https://ethereum-sepolia.publicnode.com"
-          chainId: 11155111
